@@ -1,12 +1,10 @@
 import streamlit as st
 from PIL import Image
-from openai import OpenAI
+import openai
 import os
 
 # OpenAI APIのキーを環境変数から取得
-client = OpenAI(
-    api_key=os.environ.get("OPENAI_API_KEY"),  # This is the default and can be omitted
-)
+openai.api_key = st.secrets["OPENAI_API_KEY"]  # Streamlit SecretsからAPIキーを取得
 
 # # ページの状態管理
 # if "page" not in st.session_state:
