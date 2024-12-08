@@ -1,6 +1,6 @@
 import streamlit as st
 from PIL import Image
-import openai
+from openai import OpenAI
 import os
 
 # OpenAI APIのキーを環境変数から取得
