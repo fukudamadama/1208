@@ -82,4 +82,5 @@ if submit_btn:
 
     output_content_text = run_gpt(name,mbti,KeystoneHabits,availabletime)
     st.write(output_content_text)
+    
 
