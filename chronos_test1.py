@@ -6,6 +6,8 @@ import os
 # OpenAI APIのキーを環境変数から取得
 OpenAI.api_key = st.secrets["OPENAI_API_KEY"]  # Streamlit SecretsからAPIキーを取得
 
+client = OpenAI()
+
 # # ページの状態管理
 # if "page" not in st.sesßsion_state:
 #     st.session_state.page = "top"
