@@ -1,12 +1,11 @@
 import streamlit as st
 from PIL import Image
 from openai import OpenAI
+import openai
 import os
 
 # OpenAI APIのキーを環境変数から取得
 OpenAI.api_key = st.secrets["OPENAI_API_KEY"]  # Streamlit SecretsからAPIキーを取得
-
-client = OpenAI()
 
 # # ページの状態管理
 # if "page" not in st.sesßsion_state:
@@ -69,7 +68,7 @@ if submit_btn:
         request_to_gpt = name + " は、" + mbti + "な性格の人です。" + KeystoneHabits + "を習慣化して取り組みたいと考えています。" + mbti + "な性格の人が楽しんで取り組めるように応援しながら、" + str(availabletime) + "分でできるタスクを、タスクのタイトル、概要、詳細の順番で複数個出力してください。内容は300文字以内で出力してください。また、文章は優しいキャラクターが話しかけている口調にしてください。"
 
     # 決めた内容を元にclient.chat.completions.createでchatGPTにリクエスト。オプションとしてmodelにAIモデル、messagesに内容を指定
-        response = client.chat.completions.create(
+        response = openai.chat.completions.create(
             model="gpt-4o-mini",
             messages=[
                 {"role": "user", "content": request_to_gpt },
